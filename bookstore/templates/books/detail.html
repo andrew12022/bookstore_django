@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  {{ book.title }}
+{% endblock %}
+{% block content %}
+  <h1 class="pb-2 mb-0">{{ book.title }}</h1>  
+  <div class="row mt-3">
+    <div class="col-12 col-md-6">
+      <h3>Описание:</h3>
+      <p>{{ book.description }}</p>
+      <p><b><i>Количество страниц:</i></b> {{ book.count_of_pages }}</p>
+      {% if book.author %}
+        <p><b><i>Автор:</i></b> {{ book.author.name }}</p>
+      {% endif %}
+      {% if book.publisher %}
+        <p><b><i>Издательство:</i></b> {{ book.publisher.title }}</p>
+      {% endif %}
+      {% if book.publisher %}
+        <p><b><i>Категория:</i></b> {% include "includes/category_link.html" %}</p>
+      {% endif %}        
+      <h4>
+        <span class="badge bg-dark">{{ book.price }} ₽</span>
+      </h4>  
+    </div> 
+    <div class="col-12 col-md-6 mb-3">
+      <img 
+        class="img-fluid" 
+        height="600" width="500"
+        src="{% static 'img/image-holder.png' %}"
+        >      
+    </div>
+  </div>     
+{% endblock %}
