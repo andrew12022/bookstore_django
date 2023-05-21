@@ -3,6 +3,7 @@
   Добавить книгу
 {% endblock %}
 {% block content %}
+  <h1>Добавить книгу</h1>
   <form action="{% url 'books:book_new'%}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
