@@ -32,6 +32,13 @@ class Author (models.Model):
         'Имя автора',
         max_length=256,
     )
+    slug = models.SlugField(
+        'Идентификатор',
+        unique=True,
+        help_text=('Идентификатор страницы для URL; '
+                   'разрешены символы латиницы, '
+                   'цифры, дефис и подчёркивание.'),
+    )
 
     class Meta:
         verbose_name = 'объект «Автор»'
@@ -45,6 +52,13 @@ class Publisher (models.Model):
     title = models.CharField(
         'Название',
         max_length=256,
+    )
+    slug = models.SlugField(
+        'Идентификатор',
+        unique=True,
+        help_text=('Идентификатор страницы для URL; '
+                   'разрешены символы латиницы, '
+                   'цифры, дефис и подчёркивание.'),
     )
 
     class Meta:

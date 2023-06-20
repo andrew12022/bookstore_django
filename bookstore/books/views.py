@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
 from books.forms import BookForm
-from books.models import Book, Category
+from books.models import Book, Category, Author, Publisher
 
 
 def index(request):
@@ -51,6 +51,38 @@ def category_books(request, category_slug):
         'category': category,
     }
     return render(request, 'books/category.html', context)
+
+
+def author_books(request, author_slug):
+    author = get_object_or_404(
+        Author.objects.filter(
+            slug=author_slug,
+        )
+    )
+    book_list = author.books.filter(
+        is_published=True,
+    )
+    context = {
+        'book_list': book_list,
+        'author': author,
+    }
+    return render(request, 'books/author.html', context)
+
+
+def publisher_books(request, publisher_slug):
+    publisher = get_object_or_404(
+        Publisher.objects.filter(
+            slug=publisher_slug,
+        )
+    )
+    book_list = publisher.books.filter(
+        is_published=True,
+    )
+    context = {
+        'book_list': book_list,
+        'publisher': publisher,
+    }
+    return render(request, 'books/publisher.html', context)
 
 
 def book_new(request):

@@ -11,10 +11,10 @@
       <p>{{ book.description }}</p>
       <p><b><i>Количество страниц:</i></b> {{ book.count_of_pages }}</p>
       {% if book.author %}
-        <p><b><i>Автор:</i></b> {{ book.author.name }}</p>
+        <p><b><i>Автор:</i></b> {% include "includes/author_link.html" %}</p>
       {% endif %}
       {% if book.publisher %}
-        <p><b><i>Издательство:</i></b> {{ book.publisher.title }}</p>
+        <p><b><i>Издательство:</i></b> {% include "includes/publisher_link.html" %}</p>
       {% endif %}
       {% if book.publisher %}
         <p><b><i>Категория:</i></b> {% include "includes/category_link.html" %}</p>

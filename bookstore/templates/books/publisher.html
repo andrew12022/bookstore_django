@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+  Книги издательства «{{ publisher.title }}»
+{% endblock %}
+{% block content %}
+  <h1>Книги издательства «{{ publisher.title }}»</h1>
+  <div class="row">
+    {% for book in book_list %}
+      {% include "includes/book_card.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}
