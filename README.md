@@ -53,11 +53,9 @@ python manage.py runserver
 ```
 
 ## Технологии и необходимые инструменты
-- Python 3.9
-- Django 3.2.16
-- pytest
-- sqlite3
-- django-debug-toolbar
+- Python
+- Django
+- SQLite
 
 ## Автор
 - [Андрей Елистратов](https://github.com/andrew12022)
